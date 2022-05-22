@@ -26,23 +26,38 @@ public class MainActivity extends AppCompatActivity {
         btPause = (Button) findViewById(R.id.btPause);
         btStop = (Button) findViewById(R.id.btStop);
 
-        btStop.setEnabled(false);
 
         createOnClickListeners();
+
     }
+
 
     private void createOnClickListeners() {
-        btPlay.setOnClickListener(new Button.OnClickListener()) {
+        btPlay.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(Button button) {
-            Button btPlay = (Button) button;
-            btPlay.
+            public void onClick(View view) {
+                mediaPlayer.start();
             }
-        }
-        
+        });
+
+
+        btPause.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mediaPlayer.pause();
+            }
+        });
+
+
+        btStop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mediaPlayer.stop();
+                mediaPlayer.prepareAsync();
+            }
+        });
+
     }
-
-
 
 
 }
